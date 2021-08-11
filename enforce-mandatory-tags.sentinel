@@ -11,6 +11,8 @@ ec2_instances = filter tfplan.resource_changes as _, rc {
 # Mandatory Instance Tags
 mandatory_tags = [
     "Name",
+    "Owner",
+    "Environment",
 ]
 
 # Allowed Types
