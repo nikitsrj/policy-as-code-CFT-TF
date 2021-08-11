@@ -23,6 +23,8 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "Hashicorp Sentinel"
+    Name = "Hashicorp Sentinel",
+    Owner = "Hashicorp",
+    Environment = "Dev"
   }
 }
