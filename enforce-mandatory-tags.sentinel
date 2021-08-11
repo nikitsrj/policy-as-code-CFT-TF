@@ -10,7 +10,9 @@ ec2_instances = filter tfplan.resource_changes as _, rc {
 
 # Mandatory Instance Tags
 mandatory_tags = [
-    "Name", "Owner", "Environment",
+    "Name",
+    "Owner",
+    "Environment",
 ]
 
 # Allowed Types
@@ -20,7 +22,7 @@ allowed_types = [
     "t2.medium",
 ]
 
-# Rule to enforce "Name" tag on all instances
+# Rule to enforce tags on all instances
 mandatory_instance_tags = rule {
     all ec2_instances as _, instance {
         all mandatory_tags as mt {
