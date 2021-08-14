@@ -1,5 +1,10 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "EC2 instance with encrypted EBS volume for AWS CloudFormation Guard Testing"
+Parameters:
+  InstanceType:
+    Description: EC2 instance type.
+    Type: String
+    Default: t2.medium
 Resources:
  EC2Instance:
     Type: AWS::EC2::Instance
@@ -7,7 +12,7 @@ Resources:
       ImageId: 'ami-0e5182fad1edfaa68'
       AvailabilityZone: 'ap-southeast-1a'
       KeyName: "cfn-guardkey"
-      InstanceType: 't2.xlarge'
+      InstanceType: !Ref InstanceType
       SubnetId: 'subnet-0c4a3968'
       SecurityGroupIds: [!Ref 'InstanceSecurityGroup']
       Volumes:
